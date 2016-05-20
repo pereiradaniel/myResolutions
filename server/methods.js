@@ -1,9 +1,13 @@
 Meteor.methods({
 	addResolution(resolution) {
+		if (!Meteor.userId()) {
+			throw new Meteor.Error('not-authorized');
+		}
 		Resolutions.insert({
 			text: resolution,
 			complete: false,
-			createdAt: new Date()
+			createdAt: new Date(),
+			user: Meteor.userId()
 		});
 	},
 	toggleResolution(id, status) {
