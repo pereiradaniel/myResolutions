@@ -4,6 +4,9 @@ export default class ResolutionSingle extends Component {
 	toggleChecked() {
 		Meteor.call('toggleResolution', this.props.resolution._id, this.props.resolution.complete);
 	}
+	deleteResolution() {
+		Meteor.call('deleteResolution', this.props.resolution._id);
+	}
 	render() {
 		return (
 			<li>
@@ -12,7 +15,10 @@ export default class ResolutionSingle extends Component {
 					checked={this.props.resolution.complete}
 					onClick={this.toggleChecked.bind(this)} />
 				{this.props.resolution.text}
-				{this.props.resolution.complete.toString()}
+				<button className="btn-cancel"
+					onClick={this.deleteResolution.bind(this)}>
+					&times;
+				</button>
 			</li>
 		)
 	}

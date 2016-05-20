@@ -10,5 +10,8 @@ Meteor.methods({
 		Resolutions.update(id, {
 			$set: {complete: !status}
 		});
+	},
+	deleteResolution(id) {
+		Resolutions.remove(id);
 	}
 });
