@@ -8,8 +8,9 @@ export default class ResolutionSingle extends Component {
 		Meteor.call('deleteResolution', this.props.resolution);
 	}
 	render() {
+		const resolutionClass = this.props.resolution.complete ? "checked" : "";
 		return (
-			<li>
+			<li className={resolutionClass}>
 				<input type="checkbox"
 					readOnly={true}
 					checked={this.props.resolution.complete}
