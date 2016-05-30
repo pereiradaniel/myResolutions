@@ -5,8 +5,12 @@ export default class ResolutionsForm extends Component {
 		event.preventDefault();
 		var text = this.refs.resolution.value.trim();
 
-		Meteor.call('addResolution', text, ()=>{
-			this.refs.resolution.value = "";
+		Meteor.call('addResolution', text, (error, data)=>{
+			if(error) {
+				Bert.alert('Please login before submitting', 'danger', 'fixed-top', 'fa-frown-o')
+			} else {
+				this.refs.resolution.value = "";
+			}
 		});
 		
 	}
