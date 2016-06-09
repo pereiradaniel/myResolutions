@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class About extends Component {
 	setVar() {
@@ -6,11 +7,17 @@ export default class About extends Component {
 	}
 	render() {
 		return (
-			<div>
+				<ReactCSSTransitionGroup
+					component="div"
+					transitionName="route"
+					transitionEnterTimeout={600}
+					transitionAppearTimeout={600}
+					transitionLeaveTimeout={400}
+					transitionAppear={true}>
 				<h1>About Us</h1>
-				<p>Ipsum lorem</p>
+				<p>Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	Ipsum lorem	</p>
 				<button onClick={this.setVar}>Sign Up!</button>
-			</div>
+			</ReactCSSTransitionGroup>
 			)
 	}
 }
